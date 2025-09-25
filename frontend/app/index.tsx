@@ -232,34 +232,8 @@ function AppContent() {
     return <LoginScreen />;
   }
 
-  // For now, show a placeholder for the main screen
-  // We'll implement the full data entry screen next
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.mainContainer}>
-        <View style={styles.headerSection}>
-          <View style={styles.userHeader}>
-            <Ionicons name="person-circle" size={32} color="#4CAF50" />
-            <View style={styles.userInfo}>
-              <Text style={styles.welcomeText}>Welcome, {auth.user.username}</Text>
-              <Text style={styles.userRole}>Sales Representative</Text>
-            </View>
-            <TouchableOpacity onPress={auth.logout} style={styles.logoutButton}>
-              <Ionicons name="log-out" size={24} color="#ff4444" />
-            </TouchableOpacity>
-          </View>
-        </View>
-        
-        <View style={styles.comingSoonContainer}>
-          <Ionicons name="camera" size={60} color="#4CAF50" />
-          <Text style={styles.comingSoonTitle}>Check Entry Screen</Text>
-          <Text style={styles.comingSoonText}>
-            Camera integration and form coming next...
-          </Text>
-        </View>
-      </View>
-    </SafeAreaView>
-  );
+  // For authenticated users, show the main screen
+  return <MainScreen />;
 }
 
 const styles = StyleSheet.create({
