@@ -185,7 +185,7 @@ export default function MainScreen({ auth }: { auth: AuthContextType }) {
       if (response.ok) {
         Alert.alert(
           'Payment Logged Successfully',
-          `Entry ID: ${data.id}\nBusiness: ${data.businessName}\nQuantity: ${data.quantitySold}\n\nEmail notification sent to rob@nwtacticalclean.com`,
+          `Entry ID: ${data.id}\nBusiness: ${data.businessName}\nQuantity: ${data.quantitySold}`,
           [
             {
               text: 'OK',
