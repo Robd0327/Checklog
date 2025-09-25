@@ -28,42 +28,18 @@ interface AuthContextType {
 }
 
 // We'll get the context from props instead of importing to avoid circular dependency
-export default function MainScreen() {
+export default function MainScreen({ auth }: { auth: AuthContextType }) {
   const [businessName, setBusinessName] = useState('');
   const [quantitySold, setQuantitySold] = useState('');
   const [checkImage, setCheckImage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [auth, setAuth] = useState<AuthContextType | null>(null);
   
   const BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
 
   useEffect(() => {
     requestPermissions();
-    initializeAuth();
   }, []);
-
-  const initializeAuth = async () => {
-    try {
-      const userData = await AsyncStorage.getItem('user_data');
-      if (userData) {
-        const user = JSON.parse(userData);
-        setAuth({
-          user,
-          login: () => Promise.resolve(false), // Not used in main screen
-          logout: async () => {
-            await AsyncStorage.removeItem('auth_token');
-            await AsyncStorage.removeItem('user_data');
-            // In a real app, we'd navigate back to login here
-            window.location.reload();
-          },
-          loading: false
-        });
-      }
-    } catch (error) {
-      console.error('Auth initialization error:', error);
-    }
-  };
 
   const requestPermissions = async () => {
     const cameraPermission = await Camera.requestCameraPermissionsAsync();
