@@ -42,15 +42,36 @@ export default function MainScreen({ auth }: { auth: AuthContextType }) {
   }, []);
 
   const requestPermissions = async () => {
-    const cameraPermission = await Camera.requestCameraPermissionsAsync();
-    const mediaLibraryPermission = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    
-    if (cameraPermission.status !== 'granted' || mediaLibraryPermission.status !== 'granted') {
-      Alert.alert(
-        'Permissions Required',
-        'Camera and photo library access are required to capture check images.',
-        [{ text: 'OK' }]
-      );
+    try {
+      // Check if we're in a web environment
+      const isWeb = Platform.OS === 'web';
+      
+      if (!isWeb) {
+        const cameraPermission = await Camera.requestCameraPermissionsAsync();
+        const mediaLibraryPermission = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        
+        if (cameraPermission.status !== 'granted' || mediaLibraryPermission.status !== 'granted') {
+          Alert.alert(
+            'Permissions Required',
+            'Camera and photo library access are required to capture check images.',
+            [{ text: 'OK' }]
+          );
+        }
+      } else {
+        // For web, just request media library permissions
+        const mediaLibraryPermission = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        
+        if (mediaLibraryPermission.status !== 'granted') {
+          Alert.alert(
+            'Permissions Required',
+            'Photo library access is required to select check images.',
+            [{ text: 'OK' }]
+          );
+        }
+      }
+    } catch (error) {
+      console.log('Permission request error:', error);
+      // Don't show alert for permission errors in web environment
     }
   };
 
