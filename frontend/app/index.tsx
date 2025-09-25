@@ -23,7 +23,7 @@ interface AuthContextType {
   loading: boolean;
 }
 
-const AuthContext = createContext<AuthContextType | null>(null);
+export const AuthContext = createContext<AuthContextType | null>(null);
 
 // Auth Provider Component
 export function AuthProvider({ children }: { children: React.ReactNode }) {
