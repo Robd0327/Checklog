@@ -233,7 +233,7 @@ function AppContent() {
   }
 
   // For authenticated users, show the main screen
-  return <MainScreen />;
+  return <MainScreen auth={auth} />;
 }
 
 const styles = StyleSheet.create({
