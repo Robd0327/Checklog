@@ -349,15 +349,15 @@ export default function MainScreen({ auth }: { auth: AuthContextType }) {
                 disabled={submitting}
               >
                 {submitting ? (
-                  <>
-                    <ActivityIndicator size="small" color="#ffffff" style={{ marginRight: 8 }} />
+                  <View style={styles.submitButtonContent}>
+                    <ActivityIndicator size="small" color="#ffffff" style={styles.activityIndicator} />
                     <Text style={styles.submitButtonText}>Submitting...</Text>
-                  </>
+                  </View>
                 ) : (
-                  <>
+                  <View style={styles.submitButtonContent}>
                     <Ionicons name="checkmark-circle" size={20} color="#ffffff" />
                     <Text style={styles.submitButtonText}>Submit Payment</Text>
-                  </>
+                  </View>
                 )}
               </TouchableOpacity>
             </View>
