@@ -141,9 +141,12 @@ function LoginScreen() {
         <View style={styles.loginContainer}>
           {/* Logo/Header */}
           <View style={styles.headerContainer}>
-            <Ionicons name="receipt" size={60} color="#4CAF50" />
+            <Image
+              source={require('../assets/images/tactical-clean-logo.png')}
+              style={styles.logo}
+            />
             <Text style={styles.title}>Check Payment Logger</Text>
-            <Text style={styles.subtitle}>Sales Payment Tracking</Text>
+            <Text style={styles.subtitle}>NW Tactical Clean - Sales Payment Tracking</Text>
           </View>
 
           {/* Login Form */}
