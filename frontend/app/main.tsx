@@ -216,10 +216,10 @@ export default function MainScreen({ auth }: { auth: AuthContextType }) {
         <View style={styles.userHeader}>
           <Ionicons name="person-circle" size={32} color="#4CAF50" />
           <View style={styles.userInfo}>
-            <Text style={styles.welcomeText}>Welcome, {auth?.user?.username}</Text>
+            <Text style={styles.welcomeText}>Welcome, {auth.user?.username}</Text>
             <Text style={styles.userRole}>Sales Representative</Text>
           </View>
-          <TouchableOpacity onPress={auth?.logout} style={styles.logoutButton}>
+          <TouchableOpacity onPress={auth.logout} style={styles.logoutButton}>
             <Ionicons name="log-out" size={24} color="#ff4444" />
           </TouchableOpacity>
         </View>
