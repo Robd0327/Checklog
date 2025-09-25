@@ -18,16 +18,24 @@ import { Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import * as Camera from 'expo-camera';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { AuthContext } from './index';
 
+// Auth Context Type
+interface AuthContextType {
+  user: any;
+  login: (username: string, password: string) => Promise<boolean>;
+  logout: () => void;
+  loading: boolean;
+}
+
+// We'll get the context from props instead of importing to avoid circular dependency
 export default function MainScreen() {
   const [businessName, setBusinessName] = useState('');
   const [quantitySold, setQuantitySold] = useState('');
   const [checkImage, setCheckImage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [auth, setAuth] = useState<AuthContextType | null>(null);
   
-  const auth = useContext(AuthContext);
   const BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
 
   useEffect(() => {
