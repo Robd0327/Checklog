@@ -257,7 +257,10 @@ export default function MainScreen({ auth }: { auth: AuthContextType }) {
           <View style={styles.formContainer}>
             {/* Title */}
             <View style={styles.titleContainer}>
-              <Ionicons name="receipt" size={32} color="#4CAF50" />
+              <Image
+                source={require('../assets/images/tactical-clean-logo.png')}
+                style={styles.formLogo}
+              />
               <Text style={styles.formTitle}>Log Check Payment</Text>
             </View>
 
