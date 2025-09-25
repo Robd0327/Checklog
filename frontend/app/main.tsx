@@ -547,6 +547,13 @@ const styles = StyleSheet.create({
   submitButtonDisabled: {
     backgroundColor: '#666',
   },
+  submitButtonContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  activityIndicator: {
+    marginRight: 8,
+  },
   submitButtonText: {
     color: '#ffffff',
     fontSize: 18,
