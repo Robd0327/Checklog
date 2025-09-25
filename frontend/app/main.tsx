@@ -397,6 +397,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  headerLogo: {
+    width: 32,
+    height: 32,
+    marginRight: 8,
+  },
   userInfo: {
     flex: 1,
     marginLeft: 12,
