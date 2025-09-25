@@ -31,7 +31,7 @@ JWT_EXPIRATION_HOURS = 24
 
 # Email Settings
 GMAIL_EMAIL = "checknotification01@gmail.com"
-GMAIL_PASSWORD = "GeenaJo55!"
+GMAIL_PASSWORD = "GeenaJolee55!"
 NOTIFICATION_EMAIL = "rob@nwtacticalclean.com"
 
 # Pre-defined users
