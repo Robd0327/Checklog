@@ -139,7 +139,7 @@ export default function MainScreen({ auth }: { auth: AuthContextType }) {
       const token = await AsyncStorage.getItem('auth_token');
       if (!token) {
         Alert.alert('Authentication Error', 'Please log in again');
-        auth?.logout();
+        auth.logout();
         return;
       }
 
