@@ -427,6 +427,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 32,
   },
+  formLogo: {
+    width: 24,
+    height: 24,
+    marginRight: 8,
+  },
   formTitle: {
     fontSize: 24,
     fontWeight: 'bold',
