@@ -235,10 +235,13 @@ export default function MainScreen({ auth }: { auth: AuthContextType }) {
       {/* Header */}
       <View style={styles.headerSection}>
         <View style={styles.userHeader}>
-          <Ionicons name="person-circle" size={32} color="#4CAF50" />
+          <Image
+            source={require('../assets/images/tactical-clean-logo.png')}
+            style={styles.headerLogo}
+          />
           <View style={styles.userInfo}>
             <Text style={styles.welcomeText}>Welcome, {auth.user?.username}</Text>
-            <Text style={styles.userRole}>Sales Representative</Text>
+            <Text style={styles.userRole}>NW Tactical Clean - Sales Rep</Text>
           </View>
           <TouchableOpacity onPress={auth.logout} style={styles.logoutButton}>
             <Ionicons name="log-out" size={24} color="#ff4444" />
